@@ -1,21 +1,25 @@
-# Python program to check if the number is an Armstrong number or not
+# Program to display the Fibonacci sequence up to n-th term
 
-# take input from the user
-num = int(input("Enter a number: "))
+nterms = int(input("How many terms? "))
 
-# initialize sum
-sum = 0
+# first two terms
+n1, n2 = 0, 1
+count = 0
 
-# find the sum of the cube of each digit
-temp = num
-while temp > 0:
-   digit = temp % 10
-   sum += digit ** 3
-   temp //= 10
-
-# display the result
-if num == sum:
-   print(num,"is an Armstrong number")
+# check if the number of terms is valid
+if nterms <= 0:
+   print("Please enter a positive integer")
+# if there is only one term, return n1
+elif nterms == 1:
+   print("Fibonacci sequence upto",nterms,":")
+   print(n1)
+# generate fibonacci sequence
 else:
-   print(num,"is not an Armstrong number")
-
+   print("Fibonacci sequence:")
+   while count < nterms:
+       print(n1)
+       nth = n1 + n2
+       # update values
+       n1 = n2
+       n2 = nth
+       count += 1
